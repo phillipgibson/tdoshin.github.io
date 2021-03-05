@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script 
+    src="https://code.jquery.com/jquery-3.3.1.min.js" 
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+        <script defer src = "./js/script.js" ></script>
+        <title>The Food Database</title>
+</head>
+<body>
+    <!-- Header Showcase -->
+    <header id="showcase" class="grid">
+        <div class="bg-image"></div>
+        <div class= "content-wrap">
+            <h1>Welcome to the Recipe Database</h1>
+                <p>Get Your Favorite Recipes Here!</p>
+                <form>
+                    <div class = input>
+                        <input type = "text" placeholder = "Enter Dish here">
+                    </div>
+                    <div class = submit>
+                        <input type = "submit" value = "Get Recipe Info" class="btn">
+                    </div>
+                </form>
+        </div>
+    </header>
+       
+    <!-- Main area -->
+    <main id = "main">
+        <!-- Section A -->
+            <section id="section-a" class="grid">
+                <div class="box">
+                    <h2 class = "food-name">Name Of Dish</h2>
+                    <p id= "dishname"></p>
+                    <h3 class = "Region">Region</h3>
+                    <p id= "region"></p>
+                    <h3 class = "Food Category">Food Category</h3>
+                    <p id= "category"></p>
+                    <h3 class = "Instructions">Instructions</h3>
+                    <p id = "instructions"></p>
+                </div>
+
+            </section>
+
+        <!-- Section B -->
+            <section id = "video" class= "grid">
+                <div class="box">
+                    <h2 class="video title">See Video Below</h2>
+                    <iframe id= "youtube" width="560"  height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+
+        <!-- Section C -->
+            <section id = "Instructions" class= "grid">
+                <div class= "box">
+                    <h3 class="ingredients">Ingredients You Will Need</h3>
+                    <p id= "ingr"></p>
+
+                </div>
+
+            </section>
+
+    </main>
+        
+
+    <!-- Footer -->
+    <footer id="main-footer" class="grid">
+        <div>The Food Database</div>
+        <div>Project By: Timi Oshin</div>
+    </footer>
+        
+        
+    
+</body>
+</html>
