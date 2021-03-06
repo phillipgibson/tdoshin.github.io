@@ -42,7 +42,7 @@ function handleGetData(event) {
         // Otherwise don't do anything.
 
         const ingredient = foodRecipe.meals[0][`strIngredient${i}`];
-        if (ingredient !== undefined && ingredient !== " ") {
+        if (ingredient !== undefined && ingredient !== "") {
           ingredients.push(ingredient);
         }
       }
