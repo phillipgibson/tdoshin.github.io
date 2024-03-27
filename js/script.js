@@ -9,6 +9,7 @@ const $link = $("#youtube");
 const $input = $('input[type="text"]');
 const $img = $("#image");
 const $ingredients = $("#ingr");
+const ingredientsList = [];
 
 //Referencing "form", when user clicks "submit", perform the handleGetData function
 $("form").on("submit", handleGetData);
@@ -32,24 +33,31 @@ function handleGetData(event) {
     if (data.meals === null) {
       alert("Sorry, this food item is not available at this time");
     } else {
-      foodRecipe = data;
+      foodRecipe = data[0]; // since we're only concerned about the 1st receipe
       // Variables where we'll put the ingredients and measures.
-      const ingredients = [];
       const measures = [];
-      // Loop, up to 20. Can increase if needed.
-      for (let i = 1; i <= 20; i++) {
-        // Find the ingredient. Add it to the ingredients array if it exists.
-        // Otherwise don't do anything.
 
-        const ingredient = foodRecipe.meals[0][`strIngredient${i}`];
-        if (ingredient !== undefined && ingredient !== "") {
-          ingredients.push(ingredient);
-        }
-      }
-      console.log(ingredients);
-      render(ingredients);
+      getValidIngredientList(foodRecipe);
+      console.log(getValidIngredientList(foodRecipe));
+      render(getValidIngredientList(foodRecipe));
     }
   });
+}
+
+function getValidIngredientList(obj) {
+  // get property names that start with "strIngredient"
+  const ingredientKeys = Object.keys(obj).filter((key) =>
+    key.startsWith("strIngredient")
+  );
+
+  // get property names that contain a value and add to array
+  ingredientKeys.forEach((key) => {
+    if (obj.hasOwnProperty(key) && obj[key]) {
+      ingredientsList.push(obj[key]);
+    }
+  });
+
+  return ingredientsList;
 }
 
 function render(ingredients) {
